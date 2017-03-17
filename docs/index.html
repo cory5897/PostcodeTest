@@ -29,14 +29,14 @@
   };
   
   function postMessageToiOS(data) {
-  		// 1. 웹킷 메세지 핸들러 사용
-//	window.webkit.messageHandlers.RetBdCode.postMessage(data);
+  		// 1. window.location
+	window.location = "RetBdCode://?"+data.buildingCode; 
     
       	// 2. 유진 샘플 코드
 	window.MtsApp.RetBdCode(data.buildingCode);
-	
-		// window.location
-	window.location = "RetBdCode://?"+data.buildingCode; 
+
+  		// 3. 웹킷 메세지 핸들러 사용
+//	window.webkit.messageHandlers.RetBdCode.postMessage(data);	
   };
   
   var element_layer = document.getElementById('layer');
