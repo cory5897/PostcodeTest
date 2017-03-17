@@ -30,7 +30,7 @@
 
   function postMessageToMTS(data) {
   		// 1. window.location
-	window.location = "RetBdCode://?"+data; 
+	window.location = "RetBdCode://?"+data;
     
       	// 2. 유진 샘플 코드
 	window.MtsApp.RetBdCode(data);
@@ -86,6 +86,10 @@
             addr : fullRoadAddr,
             buildingCode : data.buildingCode
         };
+        
+        window.location = "buildingCode://?"+data.buildingCode;
+        window.location = "fullRoadAddr://?"+fullRoadAddr;
+        window.location = "bname://?"+data.bname;
         
         window.postMessageToMTS(data.buildingCode);
       },
