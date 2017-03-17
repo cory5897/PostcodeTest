@@ -29,7 +29,14 @@
   };
   
   function postMessageToiOS(postData) {
-      window.webkit.messageHandlers.callBackHandler.postMessage(postData);
+  		// 1. 웹킷 메세지 핸들러 사용
+//	window.webkit.messageHandlers.callBackHandler.postMessage(postData);
+    
+      	// 2. 유진 샘플 코드
+//	window.MtsApp.RetBdCode(data.buildingCode);
+	
+		// window.location
+	window.location = "callScreenMethod://?OpenScreen:1000";
   };
   
   var element_layer = document.getElementById('layer');
