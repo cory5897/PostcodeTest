@@ -27,18 +27,18 @@
     var params = data.params;
     console.log("onReceivedActivityMessageViaJavascriptInterface "+event);
   };
-  
-  function postMessageToiOS(data) {
+
+  function postMessageToMTS(data) {
   		// 1. window.location
-	window.location = "RetBdCode://?"+data.buildingCode; 
+	window.location = "RetBdCode://?"+data; 
     
       	// 2. 유진 샘플 코드
-	window.MtsApp.RetBdCode(data.buildingCode);
+	window.MtsApp.RetBdCode(data);
 
   		// 3. 웹킷 메세지 핸들러 사용
 //	window.webkit.messageHandlers.RetBdCode.postMessage(data);	
   };
-  
+    
   var element_layer = document.getElementById('layer');
   
   function execDaumPostcode() {
@@ -87,7 +87,7 @@
             buildingCode : data.buildingCode
         };
         
-        window.postMessageToiOS(postData);
+        window.postMessageToMTS(data.buildingCode);
       },
       width : '100%',
       height : '100%'
