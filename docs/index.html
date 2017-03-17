@@ -28,15 +28,15 @@
     console.log("onReceivedActivityMessageViaJavascriptInterface "+event);
   };
   
-  function postMessageToiOS(postData) {
+  function postMessageToiOS(data) {
   		// 1. 웹킷 메세지 핸들러 사용
-	window.webkit.messageHandlers.RetBdCode.postMessage(postData);
+//	window.webkit.messageHandlers.RetBdCode.postMessage(data);
     
       	// 2. 유진 샘플 코드
-//	window.MtsApp.RetBdCode(data.buildingCode);
+	window.MtsApp.RetBdCode(data.buildingCode);
 	
 		// window.location
-	window.location = "RetBdCode://?"+postData; 
+	window.location = "RetBdCode://?"+data.buildingCode; 
   };
   
   var element_layer = document.getElementById('layer');
@@ -83,7 +83,8 @@
         var postData = {
             postcode : data.postcode,
             zonecode : data.zonecode,
-            addr : fullRoadAddr
+            addr : fullRoadAddr,
+            bdcode : data.buildingCode
         };
         
         window.postMessageToiOS(postData);
